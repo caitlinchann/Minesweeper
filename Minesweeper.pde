@@ -3,7 +3,7 @@ public static final int NUM_ROWS = 20;
 public static final int NUM_COLS = 20;
 private MSButton[][] buttons; //2d array of minesweeper buttons
 private ArrayList <MSButton> bombs = new ArrayList <MSButton>(); //ArrayList of just the minesweeper buttons that are mined
-public int remBombs = 50;
+public int NUM_BOMBS = 50;
 
 void setup () 
 {
@@ -47,8 +47,8 @@ public void draw ()
 
 
     fill(255);
-    text("Bombs remaining:  " + remBombs, 100, 415);
-    if(remBombs <= 0)
+    text("Bombs remaining:  " + NUM_BOMBS, 100, 415);
+    if(NUM_BOMBS <= 0)
     {
         fill(0);
         rect(0,400,400,30);
@@ -146,13 +146,13 @@ public class MSButton
             marked = !marked;
             if(marked == true){
                 clicked = true;
-                remBombs--;
+                NUM_BOMBS--;
             }
             else
             {
                 marked= false;
                 clicked = false;
-                remBombs++;
+                NUM_BOMBS++;
             }
         }
         else if (bombs.contains(this))
